@@ -44,33 +44,33 @@ Map::~Map(){}
 
 void Map::makeBorders(){
 
-	mapgrid[0][0].setDoor('W',1);
-	mapgrid[0][1].setDoor('W',1);
-	mapgrid[0][2].setDoor('W',1);
-	mapgrid[0][3].setDoor('W',1);
-	mapgrid[0][4].setDoor('W',1);
-	mapgrid[0][5].setDoor('W',1);
+	mapgrid[0][0].setWall('W',1);
+	mapgrid[0][1].setWall('W',1);
+	mapgrid[0][2].setWall('W',1);
+	mapgrid[0][3].setWall('W',1);
+	mapgrid[0][4].setWall('W',1);
+	mapgrid[0][5].setWall('W',1);
 
-	mapgrid[0][0].setDoor('S',1);
-	mapgrid[1][0].setDoor('S',1);
-	mapgrid[2][0].setDoor('S',1);
-	mapgrid[3][0].setDoor('S',1);
-	mapgrid[4][0].setDoor('S',1);
-	mapgrid[5][0].setDoor('S',1);
+	mapgrid[0][0].setWall('S',1);
+	mapgrid[1][0].setWall('S',1);
+	mapgrid[2][0].setWall('S',1);
+	mapgrid[3][0].setWall('S',1);
+	mapgrid[4][0].setWall('S',1);
+	mapgrid[5][0].setWall('S',1);
 
-	mapgrid[5][0].setDoor('E',1);
-	mapgrid[5][1].setDoor('E',1);
-	mapgrid[5][2].setDoor('E',1);
-	mapgrid[5][3].setDoor('E',1);
-	mapgrid[5][4].setDoor('E',1);
-	mapgrid[5][5].setDoor('E',1);
+	mapgrid[5][0].setWall('E',1);
+	mapgrid[5][1].setWall('E',1);
+	mapgrid[5][2].setWall('E',1);
+	mapgrid[5][3].setWall('E',1);
+	mapgrid[5][4].setWall('E',1);
+	mapgrid[5][5].setWall('E',1);
 
-	mapgrid[0][5].setDoor('N',1);
-	mapgrid[1][5].setDoor('N',1);
-	mapgrid[2][5].setDoor('N',1);
-	mapgrid[3][5].setDoor('N',1);
-	mapgrid[4][5].setDoor('N',1);
-	mapgrid[5][5].setDoor('N',1);
+	mapgrid[0][5].setWall('N',1);
+	mapgrid[1][5].setWall('N',1);
+	mapgrid[2][5].setWall('N',1);
+	mapgrid[3][5].setWall('N',1);
+	mapgrid[4][5].setWall('N',1);
+	mapgrid[5][5].setWall('N',1);
 
 }
 
