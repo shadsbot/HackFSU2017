@@ -30,6 +30,6 @@
 
 - Key
 
-- Locked DOor
+- Locked Door
 
 - Torch
