@@ -25,6 +25,7 @@ public:
 private:
 
 	void makeBorders();
+	void makeExit();
 
 	Room mapgrid[6][6];
 	player person;
