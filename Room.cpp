@@ -16,7 +16,8 @@ public:
 	~Room();
 
 	void Unlock(const char &c, Item &key);
-	int getLightlvl const();
+	int getLightlvl() const;
+	void setDoor(const char &c, bool val);
 
 private:
 
@@ -28,6 +29,25 @@ private:
 
 //Constructor - randomly generates light level
 Room::Room(){
+
+	DoorN = 0;
+	DoorS = 0;
+	DoorE = 0;
+	DoorW = 0;
+
+	srand(time(NULL));
+	Lightlvl = rand() % 4;
+	contents = new deque<Item>();
+
+}
+
+//Constructor that takes in 4 manual values for NSEW
+Room::Room(bool N, bool S, bool E, bool W){
+
+	DoorN = N;
+	DoorS = S;
+	DoorW = W;
+	DoorE = E;
 
 	srand(time(NULL));
 	Lightlvl = rand() % 4;
@@ -44,7 +64,7 @@ Room::~Room(){
 }
 
 //Displays the light level out
-int Room::getLightlvl const(){
+int Room::getLightlvl() const{
 
 	if(Lightlvl == 0){
 		cout << "The room is dark, and you can't see much at all.\n";
@@ -64,7 +84,20 @@ int Room::getLightlvl const(){
 
 }
 
+//Manually changes the value of a door to whatever you want
+void Room::setDoor(const char &c, bool val){
 
+	if(c=='N')
+		DoorN = val;
+	else if(c=='S')
+		DoorS = val;
+	else if(c=='E')
+		DoorE = val;
+	else if(c=='W')
+		DoorW = val;
+
+	return;
+}
 
 //If there is a door to unlock and the user has a key, this function will
 //unlock it
