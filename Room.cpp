@@ -17,23 +17,23 @@ public:
 
 	void Unlock(const char &c, Item &key);
 	int getLightlvl() const;
-	void setDoor(const char &c, bool val);
+	void setWall(const char &c, bool val);
 
 private:
 
 	deque<Item> * contents;
 	int Lightlvl;
-	bool DoorN, DoorS, DoorE, DoorW;
+	bool WallN, WallS, WallE, WallW;
 
 };
 
 //Constructor - randomly generates light level
 Room::Room(){
 
-	DoorN = 0;
-	DoorS = 0;
-	DoorE = 0;
-	DoorW = 0;
+	WallN = 0;
+	WallS = 0;
+	WallE = 0;
+	WallW = 0;
 
 	srand(time(NULL));
 	Lightlvl = rand() % 4;
@@ -44,10 +44,10 @@ Room::Room(){
 //Constructor that takes in 4 manual values for NSEW
 Room::Room(bool N, bool S, bool E, bool W){
 
-	DoorN = N;
-	DoorS = S;
-	DoorW = W;
-	DoorE = E;
+	WallN = N;
+	WallS = S;
+	WallW = W;
+	WallE = E;
 
 	srand(time(NULL));
 	Lightlvl = rand() % 4;
@@ -85,16 +85,16 @@ int Room::getLightlvl() const{
 }
 
 //Manually changes the value of a door to whatever you want
-void Room::setDoor(const char &c, bool val){
+void Room::setWall(const char &c, bool val){
 
 	if(c=='N')
-		DoorN = val;
+		WallN = val;
 	else if(c=='S')
-		DoorS = val;
+		WallS = val;
 	else if(c=='E')
-		DoorE = val;
+		WallE = val;
 	else if(c=='W')
-		DoorW = val;
+		WallW = val;
 
 	return;
 }
@@ -107,9 +107,9 @@ void Room::Unlock(const char &c, Item &key){
 
     	if(key.Name() == "KEY"){ 					
 
-    		if(DoorN == true){
+    		if(WallN == true){
 
-    			DoorN == false;
+    			WallN == false;
     			cout << "You use the key on the door. ";
     			cout << "The door opens, but the key breaks\n";
 
@@ -126,9 +126,9 @@ void Room::Unlock(const char &c, Item &key){
 
 		if(key.Name() == "KEY"){ 					
  
-    		if(DoorS == true){
+    		if(WallS == true){
 
-    			DoorS == false;
+    			WallS == false;
     			cout << "You use the key on the door. ";
     			cout << "The door opens, but the key breaks\n";
 
@@ -145,9 +145,9 @@ void Room::Unlock(const char &c, Item &key){
 
 		if(key.Name() == "KEY"){ 					
  
-    		if(DoorE == true){
+    		if(WallE == true){
 
-    			DoorE == false;
+    			WallE == false;
     			cout << "You use the key on the door. ";
     			cout << "The door opens, but the key breaks\n";
 
@@ -164,9 +164,9 @@ void Room::Unlock(const char &c, Item &key){
 
 		if(key.Name() == "KEY"){ 					
  
-    		if(DoorW == true){
+    		if(WallW == true){
 
-    			DoorW == false;
+    			WallW == false;
     			cout << "You use the key on the door. ";
     			cout << "The door opens, but the key breaks\n";
 
