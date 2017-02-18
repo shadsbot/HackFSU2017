@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <sstream>
 #include <stdio.h>
 #include <string>
@@ -34,6 +35,7 @@ int main() {
 	itemcmd.push_back("TAKE");
 	itemcmd.push_back("PUT");
 	itemcmd.push_back("PLACE");
+	itemcmd.push_back("PICK");
 	itemcmd.push_back("LIFT");
 	itemcmd.push_back("RAISE");
 	itemcmd.push_back("DROP");
@@ -47,8 +49,28 @@ int main() {
 	movement.push_back("GO");
 	movement.push_back("HEAD");
 	movement.push_back("PROCEED");
-	
 
+	std::vector<std::string>damp;
+	std::vector<std::string>regular;
+	
+	std::vector<std::vector<std::string>> responses;
+	responses.resize( 3, std::vector<std::string>>(4, "0"));
+
+	string line;
+	ifstream ifile("scenarios");
+	while(getline(ifile,line)) {
+		if (ifile.at(1) == "O") {
+			responses[0][static_cast<int>(ifile.at(2))].push_back(ifile.substr(4));
+		}
+		if(ifile.at(1) == "R") {
+			responses[1][static_cast<int>(ifile.at(2))].push_back(ifile.substr(4));
+		}
+		ifile (ifile.at(1) == "D") { 
+			responses[2][static_cast<int>(ifile.at(2))].push_back(ifile.substr(4));
+		}
+	}
+	ifile.close();
+	
 	while(RUNNING) {
 
 		string cmd;
